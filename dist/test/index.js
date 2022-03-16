@@ -18,8 +18,8 @@ var dna2 = {
 var invalid = {
   "dna": ["ATGCGA", "CAGTGC", "TTZTGT", "AGAAGG", "CCCCTA", "TCACTG"]
 };
-describe('has mutation: ', function () {
-  it('should return  mutant : 1 if its amutation ', function (done) {
+describe('has mutation: ', () => {
+  it('should return  mutant : 1 if its amutation ', done => {
     chai.request(url).post('/api/adn/mutation').send(dna1).set('x-access-token', token).end(function (err, res) {
       expect(res.body).to.have.property('mutant', 1);
       expect(res).to.have.status(200);
@@ -27,8 +27,8 @@ describe('has mutation: ', function () {
     });
   });
 });
-describe('has mutation: ', function () {
-  it('should return  mutant : 0 if its amutation ', function (done) {
+describe('has mutation: ', () => {
+  it('should return  mutant : 0 if its amutation ', done => {
     chai.request(url).post('/api/adn/mutation').send(dna2).set('x-access-token', token).end(function (err, res) {
       console.log(res.body);
       expect(res.body).to.have.property('mutant', 0);
@@ -37,8 +37,8 @@ describe('has mutation: ', function () {
     });
   });
 });
-describe('has mutation: ', function () {
-  it('should return  Hay un caracter invalido, solo se permiten los siguientes caracteres: A, T, C, G ', function (done) {
+describe('has mutation: ', () => {
+  it('should return  Hay un caracter invalido, solo se permiten los siguientes caracteres: A, T, C, G ', done => {
     chai.request(url).post('/api/adn/mutation').send(invalid).set('x-access-token', token).end(function (err, res) {
       console.log(res.body);
       expect(res).to.have.status(200);

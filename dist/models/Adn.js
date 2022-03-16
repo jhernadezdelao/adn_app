@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
+exports.default = void 0;
 
 var _mongoose = require("mongoose");
 
@@ -17,4 +17,4 @@ var adnSchema = new _mongoose.Schema({
 
 var _default = (0, _mongoose.model)('Adn', adnSchema);
 
-exports["default"] = _default;
+exports.default = _default;

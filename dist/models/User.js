@@ -5,9 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = void 0;
-
-var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"));
+exports.default = void 0;
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
@@ -38,30 +36,10 @@ var productSchema = new _mongoose.Schema({
 });
 
 productSchema.statics.encryptPassword = /*#__PURE__*/function () {
-  var _ref = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee(password) {
-    var salt;
-    return _regenerator["default"].wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return _bcryptjs["default"].genSalt(10);
-
-          case 2:
-            salt = _context.sent;
-            _context.next = 5;
-            return _bcryptjs["default"].hash(password, salt);
-
-          case 5:
-            return _context.abrupt("return", _context.sent);
-
-          case 6:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
+  var _ref = (0, _asyncToGenerator2.default)(function* (password) {
+    var salt = yield _bcryptjs.default.genSalt(10);
+    return yield _bcryptjs.default.hash(password, salt);
+  });
 
   return function (_x) {
     return _ref.apply(this, arguments);
@@ -69,24 +47,9 @@ productSchema.statics.encryptPassword = /*#__PURE__*/function () {
 }();
 
 productSchema.statics.comparePassword = /*#__PURE__*/function () {
-  var _ref2 = (0, _asyncToGenerator2["default"])( /*#__PURE__*/_regenerator["default"].mark(function _callee2(password, receivedPassword) {
-    return _regenerator["default"].wrap(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            _context2.next = 2;
-            return _bcryptjs["default"].compare(password, receivedPassword);
-
-          case 2:
-            return _context2.abrupt("return", _context2.sent);
-
-          case 3:
-          case "end":
-            return _context2.stop();
-        }
-      }
-    }, _callee2);
-  }));
+  var _ref2 = (0, _asyncToGenerator2.default)(function* (password, receivedPassword) {
+    return yield _bcryptjs.default.compare(password, receivedPassword);
+  });
 
   return function (_x2, _x3) {
     return _ref2.apply(this, arguments);
@@ -95,4 +58,4 @@ productSchema.statics.comparePassword = /*#__PURE__*/function () {
 
 var _default = (0, _mongoose.model)("User", productSchema);
 
-exports["default"] = _default;
+exports.default = _default;

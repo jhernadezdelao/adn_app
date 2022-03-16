@@ -3,9 +3,7 @@
 var mutations = [];
 
 function existMutation(mutation) {
-  var exist = mutations.find(function (m) {
-    return m[0] === mutation[0] && m[1] === mutation[1];
-  });
+  var exist = mutations.find(m => m[0] === mutation[0] && m[1] === mutation[1]);
 
   if (exist) {
     return true;
@@ -19,7 +17,7 @@ function resetData() {
 }
 
 module.exports = {
-  mutations: mutations,
-  existMutation: existMutation,
-  resetData: resetData
+  mutations,
+  existMutation,
+  resetData
 };

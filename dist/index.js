@@ -6,6 +6,6 @@ var _app = _interopRequireDefault(require("./app"));
 
 require("./database");
 
-_app["default"].listen(3000, '0.0.0.0', function () {
+_app.default.listen(3000, '0.0.0.0', () => {
   console.log("server running");
 });

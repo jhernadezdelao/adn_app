@@ -1,9 +1,9 @@
 "use strict";
 
 function isValid(value) {
-  var _char = value.toUpperCase();
+  var char = value.toUpperCase();
 
-  if (_char === 'A' || _char === 'T' || _char === 'C' || _char === 'G') {
+  if (char === 'A' || char === 'T' || char === 'C' || char === 'G') {
     return true;
   }
 

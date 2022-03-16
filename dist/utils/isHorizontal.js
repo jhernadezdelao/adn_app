@@ -6,8 +6,7 @@ var _mutation = _interopRequireDefault(require("./mutation"));
 
 function isHorizontal(col, row, dna) {
   if (col < dna[row].length) {
-    var _char = dna[row].charAt(col).toUpperCase();
-
+    var char = dna[row].charAt(col).toUpperCase();
     var leftCount = 0;
     var rightCount = 0;
 
@@ -17,7 +16,7 @@ function isHorizontal(col, row, dna) {
         for (var i = col - 1; i >= 0; i--) {
           var leftChar = dna[row].charAt(i).toUpperCase();
 
-          if (leftChar === _char) {
+          if (leftChar === char) {
             leftCount++;
           } else {
             break;
@@ -30,7 +29,7 @@ function isHorizontal(col, row, dna) {
         for (var _i = col + 1; _i < dna[row].length; _i++) {
           var rightChar = dna[row].charAt(_i).toUpperCase();
 
-          if (rightChar === _char) {
+          if (rightChar === char) {
             rightCount++;
           } else {
             break;
@@ -41,10 +40,10 @@ function isHorizontal(col, row, dna) {
       var total = leftCount + rightCount + 1;
 
       if (total >= 4) {
-        _mutation["default"].mutations.push([col, row]);
+        _mutation.default.mutations.push([col, row]);
 
         for (var _i2 = col + 1; _i2 <= col + rightCount; _i2++) {
-          _mutation["default"].mutations.push([_i2, row]);
+          _mutation.default.mutations.push([_i2, row]);
         }
 
         return true;

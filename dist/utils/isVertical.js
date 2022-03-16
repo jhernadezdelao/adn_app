@@ -6,8 +6,7 @@ var _mutation = _interopRequireDefault(require("./mutation"));
 
 function isVertical(col, row, dna) {
   if (row < dna.length) {
-    var _char = dna[row].charAt(col).toUpperCase();
-
+    var char = dna[row].charAt(col).toUpperCase();
     var topCount = 0;
     var bottomCount = 0;
 
@@ -17,7 +16,7 @@ function isVertical(col, row, dna) {
         for (var i = row - 1; i >= 0; i--) {
           var topChar = dna[i].charAt(col).toUpperCase();
 
-          if (topChar === _char && topCount < 3) {
+          if (topChar === char && topCount < 3) {
             topCount++;
           } else {
             break;
@@ -30,7 +29,7 @@ function isVertical(col, row, dna) {
         for (var _i = row + 1; _i < dna.length; _i++) {
           var bottomChar = dna[_i].charAt(col).toUpperCase();
 
-          if (bottomChar === _char && topCount < 3) {
+          if (bottomChar === char && topCount < 3) {
             bottomCount++;
           } else {
             break;
@@ -41,10 +40,10 @@ function isVertical(col, row, dna) {
       var total = topCount + bottomCount + 1;
 
       if (total >= 4) {
-        _mutation["default"].mutations.push([col, row]);
+        _mutation.default.mutations.push([col, row]);
 
         for (var j = row + 1; j <= row + bottomCount; j++) {
-          _mutation["default"].mutations.push([col, j]);
+          _mutation.default.mutations.push([col, j]);
         }
 
         return true;

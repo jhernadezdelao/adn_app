@@ -5,8 +5,7 @@ var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefau
 var _mutation = _interopRequireDefault(require("./mutation"));
 
 function isObliqueInvert(col, row, dna) {
-  var _char = dna[row].charAt(col).toUpperCase();
-
+  var char = dna[row].charAt(col).toUpperCase();
   var upCount = 0;
   var downCount = 0;
 
@@ -19,7 +18,7 @@ function isObliqueInvert(col, row, dna) {
       while (i < dna[row].length && j >= 0) {
         var upChar = dna[j].charAt(i).toUpperCase();
 
-        if (upChar === _char) {
+        if (upChar === char) {
           upCount++;
         } else {
           break;
@@ -39,7 +38,7 @@ function isObliqueInvert(col, row, dna) {
       while (_i >= 0 && _j < dna.length) {
         var downChar = dna[_j].charAt(_i).toUpperCase();
 
-        if (downChar === _char) {
+        if (downChar === char) {
           downCount++;
         } else {
           break;
@@ -53,14 +52,14 @@ function isObliqueInvert(col, row, dna) {
     var total = upCount + downCount + 1;
 
     if (total >= 4) {
-      _mutation["default"].mutations.push([col, row]);
+      _mutation.default.mutations.push([col, row]);
 
       var _i2 = col - 1;
 
       var _j2 = row + 1;
 
       while (_i2 >= col - downCount && _j2 <= row + downCount) {
-        _mutation["default"].mutations.push([_i2, _j2]);
+        _mutation.default.mutations.push([_i2, _j2]);
 
         _i2--;
         _j2++;
