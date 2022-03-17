@@ -3,7 +3,7 @@ const router = Router();
 
 const authCtrl =require ("../controllers/auth.controller");
 const  { verifyToken,isAdmin } = require ("../middlewares/authJwt");
-const { checkRolesExisted,checkDuplicateUsernameOrEmail } =require ("../middlewares/");
+const { checkRolesExisted,checkDuplicateUsernameOrEmail } =require ("../middlewares/verifySignUp");
 
 router.use((req, res, next) => {
   res.header(
