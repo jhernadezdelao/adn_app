@@ -1,7 +1,7 @@
    
-import { Schema, model } from "mongoose";
+const { Schema, model } =require( "mongoose");
 
-export const ROLES = ["user", "admin", "moderator"];
+exports.ROLES = ["user", "admin", "moderator"];
 
 const roleSchema = new Schema(
   {
@@ -12,4 +12,4 @@ const roleSchema = new Schema(
   }
 );
 
-export default model("Role", roleSchema);
+module.exports=model("Role", roleSchema);

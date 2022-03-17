@@ -1,19 +1,21 @@
 
    
-import { Router } from "express";
+const { Router } =require("express");
 const router = Router();
 
-import * as usersCtrl from "../controllers/user.controller";
-import { authJwt, verifySignup } from "../middlewares";
+const  usersCtrl =require("../controllers/user.controller");
+
+const  { verifyToken,isAdmin } = require ("../middlewares/authJwt");
+const { checkRolesExisted,checkDuplicateUsernameOrEmail } =require ("../middlewares/verifySignUp");
 
 router.post(
   "/",
   [
-    authJwt.verifyToken,
-    authJwt.isAdmin,
-    verifySignup.checkDuplicateUsernameOrEmail,
+    verifyToken,
+    isAdmin,
+    checkDuplicateUsernameOrEmail,
   ],
   usersCtrl.createUser
 );
 
-export default router;
+module.exports=router;

@@ -1,12 +1,12 @@
-import Adn from '../models/Adn'
-import  isHorizontal  from '../utils/isHorizontal';
-import  isVertical  from '../utils/isVertical';
-import  isOblique  from '../utils/isOblique';
-import  isObliqueInvert  from '../utils/isObliqueInvert';
-import  isValid  from '../utils/isValid';
-import  Mutation  from '../utils/mutation';
+const Adn = require ('../models/Adn');
+const  isHorizontal  = require ('../utils/isHorizontal');
+const  isVertical  = require ('../utils/isVertical');
+const  isOblique  = require ('../utils/isOblique');
+const  isObliqueInvert  = require ('../utils/isObliqueInvert');
+const  isValid  = require ('../utils/isValid');
+const  Mutation  = require ('../utils/mutation');
 
-export const checkAdn= async (req, res)=>{
+exports.checkAdn= async (req, res)=>{
     console.log(req.body)
   
     let adn_temp = req.body.dna
@@ -34,7 +34,7 @@ export const checkAdn= async (req, res)=>{
    
     
 }
-export const getAdn= async (req, res)=>{
+exports.getAdn= async (req, res)=>{
     const dnaList =await Adn.aggregate([
         { "$facet": {
           "Total": [

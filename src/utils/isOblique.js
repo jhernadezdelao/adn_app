@@ -1,4 +1,4 @@
-import  Mutation  from './mutation';
+const  Mutation =require('./mutation');
 
 function isOblique(col, row, dna) {
   const char = dna[row].charAt(col).toUpperCase()

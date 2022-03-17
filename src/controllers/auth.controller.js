@@ -1,10 +1,10 @@
-import User from "../models/User";
-import Role from "../models/Role";
+const User =require( "../models/User");
+const Role =require( "../models/Role");
 
-import jwt from "jsonwebtoken";
-import config from "../config";
+const jwt =require( "jsonwebtoken");
+const config =require( "../config");
 
-export const signUp = async (req, res) => {
+exports.signUp = async (req, res) => {
   try {
     // Getting the Request Body
     const { username, email, password, roles } = req.body;
@@ -39,7 +39,7 @@ export const signUp = async (req, res) => {
   }
 };
 
-export const signin = async (req, res) => {
+exports.signin = async (req, res) => {
   try {
     // Request body email can be an email or username
     const userFound = await User.findOne({ email: req.body.email }).populate(

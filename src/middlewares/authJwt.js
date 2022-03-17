@@ -1,9 +1,9 @@
-import jwt from "jsonwebtoken";
-import config from "../config";
-import User from "../models/User";
-import Role from "../models/Role";
+const jwt =require  ("jsonwebtoken");
+const config =require  ("../config");
+const User =require  ("../models/User");
+const Role =require  ("../models/Role");
 
-export const verifyToken = async (req, res, next) => {
+exports.verifyToken = async (req, res, next) => {
   let token = req.headers["x-access-token"];
 
   if (!token) return res.status(403).json({ message: "No token provided" });
@@ -21,7 +21,7 @@ export const verifyToken = async (req, res, next) => {
   }
 };
 
-export const isAdmin = async (req, res, next) => {
+exports.isAdmin = async (req, res, next) => {
   try {
     const user = await User.findById(req.userId);
     const roles = await Role.find({ _id: { $in: user.roles } });

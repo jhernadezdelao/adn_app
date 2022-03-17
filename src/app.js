@@ -1,13 +1,14 @@
-import express from "express";
-import cors from "cors";
-import morgan from "morgan";
-import helmet from "helmet";
+const express =require( "express");
+const cors =require( "cors");
+const morgan =require( "morgan");
+const helmet =require( "helmet");
 
-import adnRoutes from './routes/adn.routes'
-import usersRoutes from "./routes/user.routes";
-import authRoutes from "./routes/auth.routes";
+const adnRoutes =require( './routes/adn.routes')
+const usersRoutes =require( "./routes/user.routes")
+const authRoutes =require( "./routes/auth.routes")
 
-import { createRoles, createAdmin} from "./libs/initialSetup";
+const { createRoles, createAdmin} =require("./libs/initialSetup");
+
 const app=express()
 createRoles();
 createAdmin();
@@ -31,4 +32,4 @@ app.get('/',(req,res)=>{
 app.use('/api/adn',adnRoutes)
 app.use("/api/users", usersRoutes);
 app.use("/api/auth", authRoutes);
-export default app;
+module.exports = app;

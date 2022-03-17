@@ -1,5 +1,4 @@
-
-import  Mutation  from './mutation';
+const Mutation  =require('./mutation');
 
 function isVertical(col, row, dna) {
   if (row < dna.length) {

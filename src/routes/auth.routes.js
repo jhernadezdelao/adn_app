@@ -1,8 +1,9 @@
-import { Router } from "express";
+const { Router } = require("express");
 const router = Router();
 
-import * as authCtrl from "../controllers/auth.controller";
-import { verifySignup } from "../middlewares";
+const authCtrl =require ("../controllers/auth.controller");
+const  { verifyToken,isAdmin } = require ("../middlewares/authJwt");
+const { checkRolesExisted,checkDuplicateUsernameOrEmail } =require ("../middlewares/");
 
 router.use((req, res, next) => {
   res.header(
@@ -14,10 +15,10 @@ router.use((req, res, next) => {
 
 router.post(
   "/signup",
-  [verifySignup.checkDuplicateUsernameOrEmail, verifySignup.checkRolesExisted],
+  [checkDuplicateUsernameOrEmail, checkRolesExisted],
   authCtrl.signUp
 );
 
 router.post("/signin", authCtrl.signin);
 
-export default router;
+module.exports= router;

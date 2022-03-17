@@ -1,10 +1,11 @@
-import {Router} from 'express';
-import * as adnController from '../controllers/adn.controller'
-import { authJwt } from "../middlewares";
+const  {Router} = require ('express');
+const  adnController = require ('../controllers/adn.controller');
+const  { verifyToken,isAdmin } = require ("../middlewares/authJwt");
+
 
 const router = Router();
 
-router.post('/mutation',authJwt.verifyToken,adnController.checkAdn)
-router.get('/getAdn',[authJwt.verifyToken, authJwt.isAdmin],adnController.getAdn)
+router.post('/mutation',verifyToken,adnController.checkAdn)
+router.get('/getAdn',[verifyToken, isAdmin],adnController.getAdn)
 
-export default router;
+module.exports = router;

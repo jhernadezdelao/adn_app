@@ -1,5 +1,5 @@
-import { Schema, model } from "mongoose";
-import bcrypt from "bcryptjs";
+const { Schema, model } =require("mongoose");
+const bcrypt =require("bcryptjs");
 
 const productSchema = new Schema(
   {
@@ -37,4 +37,4 @@ productSchema.statics.comparePassword = async (password, receivedPassword) => {
   return await bcrypt.compare(password, receivedPassword)
 }
 
-export default model("User", productSchema);
+module.exports= model("User", productSchema);

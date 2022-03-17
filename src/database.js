@@ -1,6 +1,6 @@
-import mongoose from "mongoose";
-import config from "./config";
-
+const mongoose =require=( "mongoose");
+const config =require=( "./config");
+console.log.("is DB")
 mongoose
   .connect(config.MONGODB_URI, {
     useNewUrlParser: true,

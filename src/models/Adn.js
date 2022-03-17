@@ -1,4 +1,4 @@
-import {Schema , model} from 'mongoose';
+const {Schema , model} =require ('mongoose');
 
 const adnSchema= new Schema({
     dna:String,
@@ -9,4 +9,4 @@ const adnSchema= new Schema({
     versionKey:false
 })
 
-export default model('Adn',adnSchema)
+module.exports=model('Adn',adnSchema)

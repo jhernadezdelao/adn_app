@@ -1,7 +1,7 @@
-import User from "../models/User";
-import Role from "../models/Role";
+const User =require ("../models/User");
+const Role =require ("../models/Role");
 
-export const createUser = async (req, res) => {
+exports.createUser = async (req, res) => {
   try {
     const { username, email, password, roles } = req.body;
 
@@ -32,6 +32,6 @@ export const createUser = async (req, res) => {
   }
 };
 
-export const getUsers = async (req, res) => {};
+exports.getUsers = async (req, res) => {};
 
-export const getUser = async (req, res) => {};
+exports.getUser = async (req, res) => {};

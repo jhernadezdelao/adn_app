@@ -1,4 +1,5 @@
-import * as authJwt from "./authJwt";
-import * as verifySignup from "./verifySignup";
+const authJwt =require ("./authJwt");
+const verifySignup =require ("./verifySignup");
 
-export { authJwt, verifySignup };
+module.exports=authJwt;
+module.exports=verifySignup;

@@ -1,4 +1,4 @@
-import  Mutation  from './mutation';
+const  Mutation =require('./mutation');
 
 function isHorizontal(col, row, dna) {
   if(col < dna[row].length) {
