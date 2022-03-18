@@ -3,12 +3,16 @@ adn app  verify mutation in ADN
 
 npm run dev 
     to run  app on dev env
+    
 npm test 
     to test
+    
 npm run build 
     to build app
+    
 npm start 
     to run compiled app
+    
 
  en el archivo .env deje la url  de conexion a la base de datos, 
  la deje expuesta ahi para que sea mas facil usar, la borrare el fin de semana
@@ -21,17 +25,22 @@ npm start
     "email":"admin@localhost",
     "password":"admin"
 }
+Este endpoint regresara el token necesario para usarlo en el Header de las otros end points
 
- para verificar una cadena de adn usa la Api 
+ para verificar una cadena de adn usa :
  http://localhost:3000/api/adn/mutation
 
- para otener el conteo de las mutaciones y no mutaciones usa la Api
+ para otener el conteo de las mutaciones y no mutaciones usa :
  http://localhost:3000/api/adn/getAdn
 
- para dar de alta un usaurio usa la APi
+ para dar de alta un usaurio usa la APi:
  http://localhost:3000/api/auth/signup
- los roles pueden ser admin o user
+ los roles pueden ser 'admin' o 'user'
   
   a continuacion ejemplo de las apis con postman
-
+  
+Localhost API
 https://documenter.getpostman.com/view/156017/UVsLSmKU
+
+AWS E2C API
+https://documenter.getpostman.com/view/156017/UVsPNPaz
